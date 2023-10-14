@@ -16,6 +16,7 @@ const searchImages = async function () {
   inputData = inputEl.value;
   if (inputData === "") {  // checking if input is empty or not
     document.location.reload();
+    return;
   }
   const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${accessKey}`;
 
@@ -62,7 +63,7 @@ formEl.addEventListener("submit", (event) => {
 });
 
 showMore.addEventListener("click", () => {
-  if (inputData != inputEl.value) {  // to check wether user changed the search text before clicking showmore.
+  if (inputData !== inputEl.value) {  // to check wether user changed the search text before clicking showmore.
     page = 1;
   }
   searchImages();
